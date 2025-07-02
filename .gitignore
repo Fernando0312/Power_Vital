@@ -1,0 +1,23 @@
+# Ignorar binarios y temporales
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Ignorar appsettings si contiene secretos
+API/appsettings.json
+API/appsettings.secrets.json
+
+# Secretos locales de .NET
+secrets.json
+
+# Archivos de VS Code / Visual Studio
+.vscode/
+*.db
+*.sqlite
+*.log
+
+# Ignorar Debug y Release
+**/Debug/
+**/Release/

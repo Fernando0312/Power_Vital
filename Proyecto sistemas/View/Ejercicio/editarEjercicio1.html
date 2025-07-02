@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Lista de Ejercicios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/indexadmin.css" />
+  <link rel="stylesheet" href="css/formulario.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Header, menú lateral y footer los genera MenuEntren.js -->
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenedor-main" id="mainContent">
+    <div class="container mt-5">
+      <h2 class="mb-4">Ejercicios registrados</h2>
+      <div id="alertPlaceholder"></div>
+
+      <!-- Botones de acción alineados -->
+      <div class="d-flex justify-content-end gap-2 mb-3">
+        <button class="btn btn-regresar" onclick="window.location.href='../Entrenador/Index.html'">
+          <i class="fas fa-arrow-left me-1"></i> Regresar
+        </button>
+        <button class="btn btn-agregar" onclick="window.location.href='indexEjercicio.html'">
+          <i class="fas fa-plus me-1"></i> Agregar
+        </button>
+
+      </div>
+
+
+      <!-- Tabla -->
+      <div class="table-responsive mb-2">
+        <table class="table table-striped align-middle" id="tablaEjercicios">
+          <thead class="table-primary">
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Repeticiones</th>
+              <th>Guía</th>
+              <th>Área Muscular</th>
+              <th>Área Muscular Afectada</th>
+              <th>Dificultad</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Ejemplo de cómo deberían verse los botones lado a lado -->
+            <tr>
+              <td>Push-ups</td>
+              <td>Ejercicio para fortalecer pecho y brazos</td>
+              <td>15</td>
+              <td><a href="#" class="btn btn-sm btn-outline-primary">Ver Video</a></td>
+              <td>Pecho</td>
+              <td>Hombros, Muñecas</td>
+              <td><span class="badge bg-warning">Media</span></td>
+              <td>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-sm" style="background-color: #C6724D; color: white;" data-bs-toggle="modal"
+                    data-bs-target="#modalEditarEjercicio">
+                    <i class="fas fa-edit me-1"></i>Editar
+                  </button>
+                  <button class="btn btn-sm" style="background-color: #A68768; color: white;"
+                    onclick="confirmarEliminar()">
+                    <i class="fas fa-trash me-1"></i>Borrar
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!-- Aquí se insertarán los ejercicios dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal Editar Ejercicio -->
+      <div class="mt-5">
+        <div class="modal fade" id="modalEditarEjercicio" tabindex="-1" aria-labelledby="modalEditarEjercicioLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <form class="modal-content p-3" id="formEditarEjercicio">
+              <div class="modal-header" style="background-color: #316163; color: white;">
+                <h5 class="modal-title" id="modalEditarEjercicioLabel">Editar Ejercicio</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                  aria-label="Cerrar"></button>
+              </div>
+
+              <div class="modal-body">
+                <input type="hidden" id="edit-idEjercicio" name="idEjercicio">
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="edit-nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="edit-nombre" name="nombre" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="edit-repeticiones" class="form-label">Repeticiones</label>
+                    <input type="number" class="form-control" id="edit-repeticiones" name="repeticiones" required>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="edit-descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="edit-descripcion" name="descripcion" rows="3"
+                      required></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="edit-guiaEjercicio" class="form-label">Guía (URL Video)</label>
+                    <input type="url" class="form-control" id="edit-guiaEjercicio" name="guiaEjercicio" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="edit-areaMuscular" class="form-label">Área Muscular</label>
+                    <select class="form-select" id="edit-areaMuscular" name="areaMuscular" required>
+                      <option value="">Seleccione</option>
+                      <option value="Abdomen">Abdomen</option>
+                      <option value="Espalda">Espalda</option>
+                      <option value="Pecho">Pecho</option>
+                      <option value="Brazos">Brazos</option>
+                      <option value="Piernas">Piernas</option>
+                      <option value="Glúteos">Glúteos</option>
+                      <option value="Hombros">Hombros</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="edit-dificultad" class="form-label">Dificultad</label>
+                    <select class="form-select" id="edit-dificultad" name="dificultad" required>
+                      <option value="">Seleccione</option>
+                      <option value="Baja">Baja</option>
+                      <option value="Media">Media</option>
+                      <option value="Alta">Alta</option>
+                    </select>
+                  </div>
+
+                  <!-- ✅ Área Muscular Afectada (Checkboxes) -->
+                  <div class="col-12">
+                    <label class="form-label">Areas Musculares Afectadas</label>
+                    <div id="edit-impedimentos" class="d-flex flex-wrap gap-3 bg-light p-3 rounded">
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Rodillas"
+                          id="impedimento-rodillas">
+                        <label class="form-check-label" for="impedimento-rodillas">Rodillas</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Tobillos"
+                          id="impedimento-tobillos">
+                        <label class="form-check-label" for="impedimento-tobillos">Tobillos</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Hombros"
+                          id="impedimento-hombros">
+                        <label class="form-check-label" for="impedimento-hombros">Hombros</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Muñecas"
+                          id="impedimento-munecas">
+                        <label class="form-check-label" for="impedimento-munecas">Muñecas</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]"
+                          value="Columna vertebral" id="impedimento-columna">
+                        <label class="form-check-label" for="impedimento-columna">Columna vertebral</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Cadera"
+                          id="impedimento-cadera">
+                        <label class="form-check-label" for="impedimento-cadera">Cadera</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Cuello"
+                          id="impedimento-cuello">
+                        <label class="form-check-label" for="impedimento-cuello">Cuello</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Hernia"
+                          id="impedimento-hernia">
+                        <label class="form-check-label" for="impedimento-hernia">Hernia</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]"
+                          value="Debilidad muscular" id="impedimento-debilidad">
+                        <label class="form-check-label" for="impedimento-debilidad">Debilidad muscular</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]"
+                          value="Condición cardíaca" id="impedimento-cardiaca">
+                        <label class="form-check-label" for="impedimento-cardiaca">Condición cardíaca</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]"
+                          value="Problemas respiratorios" id="impedimento-respiratorios">
+                        <label class="form-check-label" for="impedimento-respiratorios">Problemas respiratorios</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]"
+                          value="Discapacidad visual" id="impedimento-visual">
+                        <label class="form-check-label" for="impedimento-visual">Discapacidad visual</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]"
+                          value="Discapacidad auditiva" id="impedimento-auditiva">
+                        <label class="form-check-label" for="impedimento-auditiva">Discapacidad auditiva</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]"
+                          value="Condición neurológica" id="impedimento-neurologica">
+                        <label class="form-check-label" for="impedimento-neurologica">Condición neurológica</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="edit-impedimentos[]" value="Otro"
+                          id="impedimento-otro">
+                        <label class="form-check-label" for="impedimento-otro">Otro</label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn" style="background-color: #C6724D; color: white;"
+                  data-bs-dismiss="modal">Volver</button>
+                <button type="submit" class="btn" style="background-color: #A68768; color: white;">Guardar
+                  Cambios</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Fin Modal -->
+      </div>
+
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="../../Complementos/Components/entrenadorLayaut.js"></script>
+  <script type="module" src="./js/EjercicioFunciones.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    // Función de ejemplo para generar botones lado a lado con colores originales
+    function generarFilaEjercicio(ejercicio) {
+      return `
+        <tr>
+          <td>${ejercicio.nombre}</td>
+          <td>${ejercicio.descripcion}</td>
+          <td>${ejercicio.repeticiones}</td>
+          <td><a href="${ejercicio.guia}" class="btn btn-sm btn-outline-primary" target="_blank">Ver Video</a></td>
+          <td>${ejercicio.areaMuscular}</td>
+          <td>${ejercicio.areaMuscularAfectada}</td>
+          <td><span class="badge bg-${ejercicio.dificultad === 'Baja' ? 'success' : ejercicio.dificultad === 'Media' ? 'warning' : 'danger'}">${ejercicio.dificultad}</span></td>
+          <td>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm" style="background-color: #C6724D; color: white;" onclick="editarEjercicio(${ejercicio.id})" data-bs-toggle="modal" data-bs-target="#modalEditarEjercicio">
+                <i class="fas fa-edit me-1"></i>Editar
+              </button>
+              <button class="btn btn-sm" style="background-color: #A68768; color: white;" onclick="confirmarEliminar(${ejercicio.id})">
+                <i class="fas fa-trash me-1"></i>Borrar
+              </button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+  </script>
+</body>
+
+</html>

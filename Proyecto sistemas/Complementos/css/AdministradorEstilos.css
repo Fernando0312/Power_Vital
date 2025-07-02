@@ -1,0 +1,469 @@
+/* -------------------- RESET -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #ECF0F1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Asegura que el wrapper y el main crezcan */
+#main-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.contenedor-main {
+  transition: margin-left 0.3s ease;
+  padding: 100px 20px 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.contenedor-main.shifted {
+  margin-left: 220px;
+}
+
+/* -------------------- HEADER -------------------- */
+.header {
+  background-color: #ECF0F1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  height: 70px;
+}
+
+.menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  color: #4f316d;
+}
+
+/* -------------------- SIDEBAR -------------------- */
+.slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: #316163;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1100;
+  color: white;
+  padding-top: 70px;
+}
+
+.slide.open {
+  transform: translateX(0);
+}
+
+.menu-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: #316163;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.menu-header h1 {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin: 0;
+  line-height: 1;
+}
+
+.close-btn {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* -------------------- MENÚ PRINCIPAL -------------------- */
+.slide ul {
+  list-style: none;
+  padding: 1px;
+  font-size: 20px;
+}
+
+.slide ul li a {
+  display: flex;
+  align-items: center;
+  color: #ecf1f1;
+  font-weight: 500;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+}
+
+.slide ul li a i {
+  margin-right: 10px;
+}
+
+.slide ul li a:hover {
+  background-color: #b66447;
+  color: white;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+.caret {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+/* -------------------- SUBMENÚ -------------------- */
+.submenu {
+  display: none;
+  flex-direction: column;
+  background-color: #316163;
+}
+
+.submenu.visible {
+  display: flex;
+}
+
+.submenu li a {
+  padding: 10px 35px;
+  font-size: 14px;
+  color: #e4f4f3;
+}
+
+.submenu li a:hover,
+.submenu li a.active {
+  background-color: #b66447;
+  color: white;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+
+/* -------------------- BOTONES -------------------- */
+.btn-enviar,
+.btn-volver,
+.btn-aceptar {
+  background-color: #b66447;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+}
+
+.btn-enviar:hover,
+.btn-volver:hover,
+.btn-cancelar:hover,
+.btn-aceptar:hover,
+.btn-aceptar:focus {
+  background-color: #9f5639;
+  color: white;
+}
+
+/* -------------------- TARJETAS -------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.custom-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-section {
+  font-size: 2rem;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.bg-light-brown { background-color: #d3a87c; }
+.bg-light-green { background-color: #a3d3a1; }
+.bg-light-yellow { background-color: #f7e99d; }
+.bg-light-pink { background-color: #f7c7db; }
+
+.icon-brown { color: #5a3e2b; }
+.icon-green { color: #275d27; }
+.icon-olive { color: #6b6b2d; }
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .slide {
+    width: 200px;
+  }
+
+  .contenedor-main.shifted {
+    margin-left: 200px;
+  }
+}
+
+/* -------------------- TABLAS -------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th {
+  background-color: #316163;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table thead th {
+  background-color: #316163 !important;
+  color: #fff !important;
+}
+
+/* -------------------- FORMULARIOS -------------------- */
+.form-wrapper {
+  max-width: 700px;
+  margin: 2rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.form-wrapper .input-custom {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-wrapper .input-custom:focus {
+  border-color: #316163;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(49, 97, 99, 0.2);
+}
+
+.form-wrapper .form-buttons {
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.etiqueta-seccion {
+  display: inline-block;
+  background-color: #0d5c5d;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* -------------------- TABLA - BOTONES -------------------- */
+.acciones-clientes {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-tabla-editar {
+  background-color: #4F6654;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.btn-tabla-editar:hover {
+  background-color: #39503e;
+}
+
+.btn-tabla-eliminar {
+  background-color: #b8a88a;
+  color: #3d3d3d;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.btn-tabla-eliminar:hover {
+  background-color: #a99677;
+}
+
+.btn-tabla-editar .icono-btn,
+.btn-tabla-eliminar .icono-btn {
+  font-size: 1.2em;
+}
+.btn-regresar2 {
+  background-color: #8c684d; /* Color marrón similar al de la imagen */
+  color: #ffffff;
+ 
+}
+.btn-regresar2 span {
+  margin-left: 4px;
+}
+.btn-regresar2:hover,
+.btn-regresar2:focus {
+  background-color: #9b796d;
+  outline: none;
+}
+
+.btn-regresar3 {
+  background-color: #8c684d; /* Color marrón similar al de la imagen */
+  color: #ffffff;
+ 
+}
+.btn-regresar3 {
+  background-color: #b3644a; /* Color marrón similar al de la imagen */
+  color: #ffffff;
+ 
+}
+.btn-regresar3 span {
+  margin-left: 4px;
+}
+.btn-regresar3:hover,
+.btn-regresar3:focus {
+  background-color: #eea166;
+  outline: none;
+}
+
+
+/* -------------------- FOOTER -------------------- */
+footer {
+  background-color: #022227;
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  padding: 18px 0;
+  z-index: 10;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+footer p {
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+footer strong {
+  font-weight: bold;
+}
+
+/* Estilos de los íconos sociales */
+footer img {
+  width: 30px;
+  height: auto;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  margin: 0 10px;
+}
+
+footer img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1); /* EFECTO HOVER DE ESCALA */
+}
+
+.btn-ver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #346364; /* Color de la imagen */
+  color: white;
+  font-weight: 500;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-ver:hover {
+  background-color: #2b5253;
+  text-decoration: none;
+  transform: translateY(-1px);
+}

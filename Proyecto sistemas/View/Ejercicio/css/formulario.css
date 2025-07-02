@@ -1,0 +1,26 @@
+.form-container {
+  background: #f5f9fa;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.logo {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  width: 70px;
+}
+.form-label {
+  font-weight: 500;
+}
+.btn-custom {
+  min-width: 110px;
+  background-color: #b86d3b;
+  color: #fff;
+  border: none;
+}
+.btn-custom:hover {
+  background-color: #a95e32;
+  color: #fff;
+}

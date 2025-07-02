@@ -1,0 +1,274 @@
+
+/* Estilos generales */
+/* estilos.css */
+
+@import url("https://fonts.googleapis.com/css2?family==Poppins;wght@400,500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+
+ 
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+}
+/* Estilo del logo en el navbar */
+.navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-agregar {
+  background-color: #A68768;
+  color: white;
+}
+
+.bg-light-green {
+  background-color: #5bc073; /* verde claro */
+}
+
+.icon-green {
+  color: #1ba13a; /* verde tipo Bootstrap */
+}
+
+
+.btn-agregar:hover {
+  background-color: #8a6d52; /* Un tono un poco más oscuro para el hover */
+}
+
+.btn-regresar {
+  background-color: #C6724D;
+  color: white;
+}
+
+  .btn-regresar:hover {
+      background-color: #C6724D; /* Un tono un poco más oscuro para el hover */
+  }
+
+.btn-cerrar {
+  background-color: #C6724D;
+  color: white;
+}
+
+  .btn-cerrar:hover {
+      background-color: #C6724D;
+  }
+
+.navbar-brand img {
+  max-width: 5vw;
+  height: auto;
+}
+
+/* Estilo de los enlaces del navbar */
+
+
+
+
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 1em;
+  padding: 0.5em 1em;
+}
+
+/* Asegura que el navbar siempre esté contraído */
+.navbar-collapse {
+  flex-grow: 0;
+  background-color: #2C3E50;
+  border-radius: 8px;
+}
+
+.dropdown-menu {
+  flex-grow: 0;
+  background-color: #2C3E50;
+  border-radius: 8px;
+}
+
+  .dropdown-menu a {
+      color: #f2f2f2;
+  }
+
+.text-brown {
+  color: #8B4513;
+}
+
+.text-olive {
+  color: #808000;
+}
+
+.bg-warning-subtle {
+  background-color: #f3e5ab;
+  min-width: 60px;
+  height: 100%;
+}
+
+
+footer img {
+  width: 30px; /* tamaño opcional */
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  margin: 0 10px;
+}
+
+footer {
+  background-color: #022227;
+  color: #ffffff;
+  padding: 1rem 0;
+  /*position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 8px;*/
+}
+
+  footer img {
+      width: 30px;
+      margin: 0 10px;
+  }
+
+
+      footer img:hover {
+          filter: grayscale(0%);
+      }
+
+  footer p {
+      color: rgb(255, 255, 255);
+  }
+
+.carousel-inner img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.img-banner {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.custom-card {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  height: 70px;
+}
+
+.icon-section {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Colores personalizados */
+.bg-light-brown {
+  background-color: #e8d9ce;
+}
+
+.bg-light-yellow {
+  background-color: #f5f3cf;
+}
+
+.bg-light-pink {
+  background-color: #f3e2dc;
+}
+
+.icon-brown {
+  color: #7b4212;
+  font-size: 1.5rem;
+}
+
+.icon-olive {
+  color: #b1a437;
+  font-size: 1.5rem;
+}
+
+/*estilos param el LOGIN*/
+
+body {
+  background-color: #ECF0F1;
+}
+
+.login-card {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+header {
+  background-color: #ECF0F1;
+  color: #000000;
+  padding: 1rem 0;
+}
+
+  header img {
+      height: 60px;
+  }
+
+footer {
+  background-color: #022227;
+  color: #ffffff;
+  padding: 1rem 0;
+}
+
+  footer img {
+      width: 30px;
+      margin: 0 10px;
+  }
+
+h1, h2 {
+  margin-bottom: 1rem;
+  color: black;
+}
+
+a.small {
+  font-size: 0.875rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+  a.small:hover {
+      text-decoration: underline;
+  }
+
+.btn-primary {
+  background-color: #3b7ca0;
+  border-color: #3b7ca0;
+}
+
+  .btn-primary:hover {
+      background-color: #2f6785;
+      border-color: #2f6785;
+  }
+
+footer img {
+  width: 30px; /* tamaño opcional */
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  margin: 0 10px;
+}
+
+  footer img:hover {
+      filter: grayscale(0%);
+  }
+
+footer p {
+  color: rgb(255, 255, 255);
+}
+
+
+
+
+

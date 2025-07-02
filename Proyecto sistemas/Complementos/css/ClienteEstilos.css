@@ -1,0 +1,784 @@
+/* ========================
+   RESET GENERAL
+========================= */
+/* ClienteEstilos.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ecf0f1;
+  color: #212529;
+  overflow-x: hidden;
+}
+
+/* ========================
+   VARIABLES CSS - SOLO CAMBIÉ EL COLOR HOVER PARA BOTONES
+========================= */
+:root {
+  --color-principal: #316163;
+  --color-hover: #C4A574; /* CAFÉ/BEIGE CLARO PARA BOTONES */
+  --color-fondo: #ecf0f1;
+  --color-footer: #022227;
+  --color-texto: #212529;
+}
+
+/* ========================
+   HEADER FIJO
+========================= */
+.encabezado {
+  background-color: #ecf0f1;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* ========================
+   BOTÓN MENÚ (hamburguesa)
+========================= */
+.menu-toggle {
+  position: fixed;
+  top: 22px;
+  left: 20px;
+  font-size: 24px;
+  color: #316163;
+  cursor: pointer;
+  z-index: 1300;
+  transition: opacity 0.3s ease;
+}
+
+.layout.sidebar-open .menu-toggle {
+  transform: translateX(-9999px); /* Lo mueve fuera de pantalla */
+}
+
+/* ========================
+   SIDEBAR - MANTIENE EL HOVER ORIGINAL EN #b66447
+========================= */
+.sidebar {
+  width: 220px;
+  background-color: #316163;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 80px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1100;
+}
+
+.layout.sidebar-open .sidebar {
+  transform: translateX(0);
+}
+
+.menu-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: #316163;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.menu-header h1 {
+  color: #fff;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.close-btn {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #ecf1f1;
+  text-decoration: none;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #b66447; /* MANTIENE EL COLOR ORIGINAL DEL MENÚ */
+  border-left: 4px solid white;
+  font-weight: bold;
+  color: white;
+}
+
+/* ========================
+   CONTENIDO DESPLAZABLE
+========================= */
+.main-wrapper {
+  transition: margin-left 0.3s ease;
+  padding-top: 100px;
+}
+
+.layout.sidebar-open .main-wrapper {
+  margin-left: 220px;
+}
+
+/* ========================
+   TARJETAS
+========================= */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta-admin {
+  background-color: #d3a87c;
+  color: #5a3e2b;
+}
+
+.tarjeta-padecimientos {
+  background-color: #a3d3a1;
+  color: #275d27;
+}
+
+.tarjeta-clientes {
+  background-color: #f7e99d;
+  color: #6b6b2d;
+}
+
+.tarjeta-rutinas {
+  background-color: #f7c7db;
+  color: #6b304f;
+}
+/* ========================
+   FOOTER FIJO MEJORADO
+========================= */
+footer {
+   background-color: #022227; /* Verde oscuro */
+   color: #fffdfd;
+   padding: 1rem 0;
+   text-align: center;
+   margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+footer .footer-content {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 15px;
+   flex-wrap: wrap;
+}
+
+footer img {
+   width: 30px;
+   height: 30px;
+   filter: none !important; /* QUITAR FILTRO GRIS - MOSTRAR COLORES ORIGINALES */
+   transition: transform 0.3s ease;
+   margin: 0 5px;
+}
+
+footer img:hover {
+   transform: scale(1.1); /* EFECTO HOVER DE ESCALA */
+}
+
+footer p {
+   color: rgb(255, 255, 255); /* TEXTO BLANCO PARA CONTRASTE */
+   margin: 0;
+}
+
+/* Para que el footer siempre esté abajo, agregá esto al body */
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-wrapper {
+    flex: 1;
+}
+
+/* Contenedor de iconos sociales */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Iconos sociales mejorados */
+.icono-social {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Facebook */
+.icono-social.facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.icono-social.facebook:hover {
+  background-color: #166fe5;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+  color: white;
+}
+
+/* Instagram */
+.icono-social.instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+}
+
+.icono-social.instagram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+  color: white;
+}
+
+/* ========================
+   RESPONSIVE PARA FOOTER
+========================= */
+@media (max-width: 768px) {
+  footer.pie {
+    padding: 0 15px;
+    height: 65px;
+  }
+  
+  .footer-text {
+    font-size: 12px;
+  }
+  
+  .social-icons {
+    gap: 10px;
+  }
+  
+  .icono-social {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer.pie {
+    flex-direction: column;
+    height: 80px;
+    padding: 8px 15px;
+    gap: 8px;
+  }
+  
+  .footer-text {
+    font-size: 11px;
+    text-align: center;
+  }
+  
+  .social-icons {
+    gap: 8px;
+  }
+  
+  .icono-social {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+/* ========================
+   EXPEDIENTE MÉDICO
+========================= */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.contenido {
+  flex: 1;
+}
+
+.expediente-medico {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: auto;
+}
+
+.expediente-medico h5 {
+  font-weight: bold;
+  margin-top: 30px;
+  border-bottom: 2px solid #316163;
+  padding-bottom: 8px;
+  color: #316163;
+}
+
+.expediente-medico p span {
+  font-weight: normal;
+  color: #333;
+}
+
+main.contenido {
+  flex: 1 0 auto;
+  padding-bottom: 80px; /* espacio para el footer */
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 80vh;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.action-buttons {
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#pdfCanvas {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* ========================
+   ESTILOS RUTINAS - BOTONES PERSONALIZADOS EN CAFÉ
+========================= */
+
+/* Override de Bootstrap para botones en café */
+.btn-primary {
+  background-color: var(--color-hover) !important; /* CAFÉ #C4A574 */
+  border-color: var(--color-hover) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: #D4B896 !important; /* CAFÉ MÁS CLARO */
+  border-color: #D4B896 !important;
+  color: white !important;
+}
+
+.btn-success {
+  background-color: var(--color-hover) !important; /* CAFÉ #C4A574 */
+  border-color: var(--color-hover) !important;
+  color: white !important;
+}
+
+.btn-success:hover {
+  background-color: #D4B896 !important; /* CAFÉ MÁS CLARO */
+  border-color: #D4B896 !important;
+  color: white !important;
+}
+
+.btn-info {
+  background-color: var(--color-hover) !important; /* CAFÉ #C4A574 */
+  border-color: var(--color-hover) !important;
+  color: white !important;
+}
+
+.btn-info:hover {
+  background-color: #D4B896 !important; /* CAFÉ MÁS CLARO */
+  border-color: #D4B896 !important;
+  color: white !important;
+}
+
+.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.btn-danger:hover {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+}
+
+/* ========================
+   ESTILOS RUTINAS - TABLA
+========================= */
+
+/* Tabla con colores personalizados */
+.table-dark {
+  background-color: var(--color-principal) !important;
+}
+
+.table-dark th {
+  background-color: var(--color-principal) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+/* Filas de tabla con hover personalizado */
+.rutina-row:hover {
+  background-color: rgba(49, 97, 99, 0.05) !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(49, 97, 99, 0.05);
+}
+
+/* Tabla responsive mejorada */
+.table-responsive-rutinas {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table-responsive-rutinas .table {
+  margin-bottom: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ========================
+   ESTILOS RUTINAS - ENCABEZADOS
+========================= */
+
+/* Encabezado personalizado para rutinas */
+.encabezado-rutinas {
+  background: linear-gradient(135deg, var(--color-principal), #4a7c7e);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(49, 97, 99, 0.3);
+}
+
+.encabezado-rutinas h5 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.encabezado-rutinas small {
+  opacity: 0.9;
+}
+
+/* Encabezado de detalle de rutina */
+.encabezado-detalle-rutina {
+  background: linear-gradient(135deg, var(--color-principal), #4a7c7e);
+  border: none;
+  border-radius: 12px 12px 0 0;
+}
+
+/* ========================
+   ESTILOS RUTINAS - BADGES Y ETIQUETAS
+========================= */
+
+/* Badge personalizado */
+.badge-principal {
+  background-color: var(--color-principal) !important;
+  color: white;
+}
+
+.badge-custom {
+  background-color: var(--color-principal) !important;
+  color: white;
+}
+
+.badge-custom-hover:hover {
+  background-color: var(--color-hover) !important;
+}
+
+/* Contador de rutinas */
+.contador-rutinas {
+  background: linear-gradient(135deg, var(--color-principal), #4a7c7e);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(49, 97, 99, 0.3);
+}
+
+/* Badges de dificultad personalizados */
+.badge-dificultad-baja {
+  background-color: #a3d3a1 !important;
+  color: #275d27 !important;
+}
+
+.badge-dificultad-media {
+  background-color: #f7e99d !important;
+  color: #6b6b2d !important;
+}
+
+.badge-dificultad-alta {
+  background-color: #f7c7db !important;
+  color: #6b304f !important;
+}
+
+/* Área muscular badges */
+.badge-area-muscular {
+  background-color: var(--color-principal) !important;
+  color: white !important;
+  font-weight: 500;
+}
+
+/* ========================
+   ESTILOS RUTINAS - BOTONES ESPECIALES EN CAFÉ
+========================= */
+
+/* Botones de acción */
+.btn-ver-detalle {
+  background-color: var(--color-hover); /* CAFÉ #C4A574 */
+  border-color: var(--color-hover);
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-ver-detalle:hover {
+  background-color: #D4B896; /* CAFÉ MÁS CLARO */
+  border-color: #D4B896;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Botones de navegación */
+.btn-navegacion {
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-navegacion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Video button styling */
+.btn-video {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.btn-video:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ========================
+   ESTILOS RUTINAS - TARJETAS
+========================= */
+
+/* Tarjetas de rutina */
+.card-rutina {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.card-rutina:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(49, 97, 99, 0.15);
+}
+
+.card-rutina .card-header {
+  background: linear-gradient(135deg, var(--color-principal), #4a7c7e);
+  border: none;
+  border-radius: 12px 12px 0 0;
+}
+
+/* ========================
+   ESTILOS RUTINAS - CONTENEDORES
+========================= */
+
+/* Contenedor principal */
+.contenido-rutinas {
+  min-height: calc(100vh - 150px);
+  padding-bottom: 80px;
+}
+
+/* Resumen de rutina */
+.resumen-rutina {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 5px solid var(--color-principal);
+}
+
+.resumen-rutina h6 {
+  color: var(--color-principal);
+  font-weight: 700;
+}
+
+/* PDF container */
+.pdf-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* ========================
+   ESTILOS RUTINAS - ESTADOS Y ANIMACIONES
+========================= */
+
+/* Loading state */
+.loading-rutinas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--color-principal);
+}
+
+.loading-rutinas .spinner-border {
+  color: var(--color-principal) !important;
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Spinner personalizado */
+.spinner-border-custom {
+  color: var(--color-principal) !important;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease;
+}
+
+/* ========================
+   ESTILOS RUTINAS - MODAL
+========================= */
+
+/* Modal personalizado */
+.modal-header {
+  background: linear-gradient(135deg, var(--color-principal), #4a7c7e);
+  color: white;
+  border-bottom: none;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+/* Toast personalizado */
+.toast-custom {
+  border-left: 4px solid var(--color-principal);
+}
+
+/* ========================
+   ESTILOS RUTINAS - ICONOS
+========================= */
+
+/* Iconos con colores personalizados */
+.icono-principal {
+  color: var(--color-principal);
+}
+
+.icono-hover:hover {
+  color: var(--color-hover);
+}
+
+/* ========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .layout.sidebar-open .main-wrapper {
+    margin-left: 200px;
+  }
+
+  .card i {
+    font-size: 1.8rem;
+  }
+
+  .menu-toggle {
+    top: 15px;
+    left: 15px;
+  }
+
+  /* Responsive para rutinas */
+  .encabezado-rutinas {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .btn-ver-detalle {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .card-rutina {
+    margin-bottom: 1rem;
+  }
+
+  .contador-rutinas {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .btn-navegacion {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Clientes</title>
+
+  <!-- Estilos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../Complementos/css/AdministradorEstilos.css" />
+
+
+  <!-- Scripts externos -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+  <div id="main-wrapper">
+    <main class="contenedor-main" id="mainContent">
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <span class="etiqueta-seccion">
+              Gestión de Clientes
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100 ">
+          <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow form-wrapper">
+              <div class="card-body">
+                <h2 class="text-center mb-4">Formulario clientes</h2>
+                <div id="alertaEdad" class="alert alert-danger d-none text-center" role="alert">
+                  El cliente debe tener al menos 16 años para registrarse.
+                </div>
+
+                <form id="formularioCrear">
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control input-custom" id="nombre" required />
+                  </div>
+                
+                  <div class="mb-3">
+                    <label for="correo" class="form-label">Correo:</label>
+                    <input type="email" class="form-control input-custom" id="correo" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono:</label>
+                    <input type="text" class="form-control input-custom" id="telefono" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="fechaNacimiento" class="form-label">Fecha Nacimiento:</label>
+                    <input type="date" class="form-control input-custom" id="fechaNacimiento" required max="" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="genero" class="form-label">Género:</label>
+                    <select class="form-select input-custom" id="genero" required>
+                      <option value="">Seleccione una opción</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="altura" class="form-label">Altura:</label>
+                    <input type="number" step="0.01" inputmode="decimal" step="any" class="form-control input-custom"
+                      id="altura" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="peso" class="form-label">Peso:</label>
+                    <input type="number" step="any" class="form-control input-custom" id="peso" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="entrenador" class="form-label">Entrenador:</label>
+                    <select class="form-select input-custom" id="entrenador" style="width: 100%;" required></select>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="padecimiento" />
+                    <label class="form-check-label" for="padecimiento">¿Tiene padecimientos?</label>
+                  </div>
+                  <div class="mb-3" id="contenedorPadecimientos" style="display: none;">
+                    <label class="form-label">Seleccione los padecimientos:</label>
+                    <div id="padecimientosList" class="form-check"></div>
+                  </div>
+                  <div class="d-flex justify-content-center gap-3">
+                    <button type="button" class="btn btn-volver"
+                      onclick="window.location.href='../../View/Administrador/ListaClientes.html'">Volver</button>
+                    <button type="submit" class="btn btn-aceptar">Aceptar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+
+<!-- Al final de tu body: -->
+
+
+<!-- <script type="module">
+  import {
+    cargarEntrenadores,
+    cargarPadecimientos,
+    registrarCliente
+  } from "../../Controler/Administrador/AdminClientes.js";
+
+  $(document).ready(() => {
+    cargarEntrenadores(); // ✅ Se asegura que el select tenga datos
+
+    $("#padecimiento").on("change", function () {
+      if (this.checked) {
+        $("#contenedorPadecimientos").show();
+        cargarPadecimientos();
+      } else {
+        $("#contenedorPadecimientos").hide().find("input").prop("checked", false);
+      }
+    });
+
+    $("#formularioCrear").on("submit", function (e) {
+      e.preventDefault();
+      registrarCliente();
+    });
+  });
+</script> -->
+<script type="module">
+  import { renderAdminLayout } from "../../Controler/Administrador/AdminLayout.js";
+  renderAdminLayout();
+</script>
+
+<script type="module">
+  import {
+    cargarEntrenadores,
+    cargarPadecimientos,
+    registrarCliente,
+    validarEdadMinima
+  } from "../../Controler/Administrador/AdminClientes.js";
+
+  // Usa SIEMPRE jQuery aquí, igual que en el JS importado
+  $(document).ready(function () {
+    cargarEntrenadores();
+
+    $("#padecimiento").on("change", function () {
+      if (this.checked) {
+        $("#contenedorPadecimientos").show();
+        cargarPadecimientos();
+      } else {
+        $("#contenedorPadecimientos").hide().find("input").prop("checked", false);
+      }
+    });
+
+    $("#formularioCrear").on("submit", function (e) {
+      e.preventDefault();
+
+      const edadValida = validarEdadMinima();
+      if (!edadValida) {
+        $("#alertaEdad")
+          .removeClass("d-none")
+          .text("❌ El cliente debe tener al menos 16 años para registrarse.");
+
+        // Scroll animado hacia la alerta
+        $("html, body").animate({
+          scrollTop: $("#alertaEdad").offset().top - 100
+        }, 600);
+
+        setTimeout(() => {
+          $("#alertaEdad").addClass("d-none");
+        }, 5000);
+        return;
+      }
+
+
+
+
+      console.log("Registrando cliente..."); // Para depuración
+      registrarCliente();
+    });
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <title>Editar Ejercicio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="../../Complementos/css/AdministradorEstilos.css" />
+  <link rel="stylesheet" href="../../View/Entrenador/css/formulario.css" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Aquí el header + menú lateral + footer serán generados por MenuEntren.js -->
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenedor-main" id="mainContent">
+    <div class="container-fluid">
+      <h2 class="mt-4">Editar Ejercicio</h2>
+
+      <!-- ALERTAS -->
+      <div id="alertPlaceholder"></div>
+
+      <form id="formAgregarEjercicio" autocomplete="off">
+        <input type="hidden" id="idEjercicio" name="idEjercicio">
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="add-nombre" class="form-label">Nombre Del Ejercicio</label>
+            <input type="text" class="form-control" id="add-nombre" name="nombre" placeholder="Nombre" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="add-repeticiones" class="form-label">Repeticiones</label>
+            <input type="number" min="1" class="form-control" id="add-repeticiones" name="repeticiones"
+              placeholder="Repeticiones" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="add-descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="add-descripcion" name="descripcion" placeholder="Descripción"
+              required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="add-guiaEjercicio" class="form-label">Guía del Ejercicio (URL)</label>
+            <input type="url" class="form-control" id="add-guiaEjercicio" name="guiaEjercicio"
+              placeholder="Ej: https://youtube.com/ejemplo" pattern="https?://.+" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="add-areaMuscular" class="form-label">Área Muscular</label>
+            <select class="form-select" id="add-areaMuscular" name="areaMuscular" required>
+              <option value="">Selecciona un área</option>
+              <option value="Pecho">Pecho</option>
+              <option value="Espalda">Espalda</option>
+              <option value="Brazos">Brazos</option>
+              <option value="Piernas">Piernas</option>
+              <option value="Hombros">Hombros</option>
+              <option value="Abdomen">Abdomen</option>
+              <option value="Glúteos">Glúteos</option>
+              <option value="Antebrazos">Antebrazos</option>
+              <option value="Pantorrillas">Pantorrillas</option>
+              <option value="Cardio">Cardio</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="add-dificultad" class="form-label">Dificultad</label>
+            <select class="form-select" id="add-dificultad" name="dificultad" required>
+              <option value="">Selecciona dificultad</option>
+              <option value="Baja">Baja</option>
+              <option value="Media">Media</option>
+              <option value="Alta">Alta</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Impedimentos asociados (checkboxes) -->
+        <div class="row mb-3" id="add-impedimentos">
+          <label class="form-label fw-bold">Areas Afectadas</label>
+          <div class="col-md-12">
+            <div class="row">
+              <!-- Grupo 1 -->
+              <div class="col-6 col-md-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impRodillas" name="impedimentos[]"
+                    value="Rodillas">
+                  <label class="form-check-label" for="impRodillas">Rodillas</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impTobillos" name="impedimentos[]"
+                    value="Tobillos">
+                  <label class="form-check-label" for="impTobillos">Tobillos</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impHombros" name="impedimentos[]" value="Hombros">
+                  <label class="form-check-label" for="impHombros">Hombros</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impMuñecas" name="impedimentos[]" value="Muñecas">
+                  <label class="form-check-label" for="impMuñecas">Muñecas</label>
+                </div>
+              </div>
+
+              <!-- Grupo 2 -->
+              <div class="col-6 col-md-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impColumnaVertebral" name="impedimentos[]"
+                    value="Columna vertebral">
+                  <label class="form-check-label" for="impColumnaVertebral">Columna vertebral</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impCadera" name="impedimentos[]" value="Cadera">
+                  <label class="form-check-label" for="impCadera">Cadera</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impCuello" name="impedimentos[]" value="Cuello">
+                  <label class="form-check-label" for="impCuello">Cuello</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impHernia" name="impedimentos[]" value="Hernia">
+                  <label class="form-check-label" for="impHernia">Hernia</label>
+                </div>
+              </div>
+
+              <!-- Grupo 3 -->
+              <div class="col-6 col-md-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impDebilidadMuscular" name="impedimentos[]"
+                    value="Debilidad muscular">
+                  <label class="form-check-label" for="impDebilidadMuscular">Debilidad muscular</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impCardiaco" name="impedimentos[]"
+                    value="Condición cardíaca">
+                  <label class="form-check-label" for="impCardiaco">Condición cardíaca</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impRespiratorio" name="impedimentos[]"
+                    value="Problemas respiratorios">
+                  <label class="form-check-label" for="impRespiratorio">Problemas respiratorios</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impVisual" name="impedimentos[]"
+                    value="Discapacidad visual">
+                  <label class="form-check-label" for="impVisual">Discapacidad visual</label>
+                </div>
+              </div>
+
+              <!-- Grupo 4 -->
+              <div class="col-6 col-md-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impAuditivo" name="impedimentos[]"
+                    value="Discapacidad auditiva">
+                  <label class="form-check-label" for="impAuditivo">Discapacidad auditiva</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impNeurologico" name="impedimentos[]"
+                    value="Condición neurológica">
+                  <label class="form-check-label" for="impNeurologico">Condición neurológica</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="impOtro" name="impedimentos[]" value="Otro">
+                  <label class="form-check-label" for="impOtro">Otro</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-center gap-3 mb-4">
+          <button type="button" class="btn btn-custom btn-regresar3"
+            onclick="window.location.href='../../View/Administrador/ListaEjercicios.html'">Regresar</button>
+          <button type="submit" class="btn btn-custom btn-regresar2">Guardar Cambios</button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  
+
+  <!-- Scripts -->
+  <script type="module" src="../../Complementos/Components/MenuEntren.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  <!-- Tu JS administrador -->
+  <script type="module" src="../../Controler/Administrador/ejercicioFuncionesAdmin.js"></script>
+</body>
+
+</html>

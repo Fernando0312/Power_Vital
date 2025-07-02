@@ -1,0 +1,237 @@
+
+/* estilosLogin.css */
+
+body {
+    background-color: #ECF0F1;
+}
+
+.login-card {
+    max-width: 400px;
+    margin: auto;
+    
+}
+
+header {
+    background-color: #ECF0F1;
+    color: #000000;
+    padding: 1rem 0;
+}
+
+    header img {
+        height: 60px;
+    }
+
+footer {
+    background-color: #022227; /* Verde oscuro */
+    color: #fffdfd;
+    padding: 1rem 0;
+}
+
+footer img {
+    width: 30px;
+    height: auto;
+    filter: none !important; /* QUITAR FILTRO GRIS - MOSTRAR COLORES ORIGINALES */
+    transition: transform 0.3s ease;
+    margin: 0 10px;
+}
+
+footer img:hover {
+    transform: scale(1.1); /* EFECTO HOVER DE ESCALA */
+}
+
+footer p {
+    color: rgb(255, 255, 255); /* TEXTO BLANCO PARA CONTRASTE */
+}
+
+h1, h2 {
+    margin-bottom: 1rem;
+    color: black;
+}
+
+a.small {
+    font-size: 0.875rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+    a.small:hover {
+        text-decoration: underline;
+    }
+
+.btn-primary {
+    background-color: #316163;
+    border-color: #316163;
+}
+
+    .btn-primary:hover {
+        background-color: #316163;
+        border-color: #316163;
+    }
+
+footer img {
+    width: 30px; /* tamaño opcional */
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    margin: 0 10px;
+}
+
+    footer img:hover {
+        filter: grayscale(0%);
+    }
+
+footer p {
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+.bg-custom {
+  background-color: #eafaf1 !important;
+}
+
+/* Estilo para alinear labels a la izquierda */
+label {
+  text-align: left;
+  display: block;
+  font-weight: 500;
+}
+
+/* Estilo contenedor para el campo de contraseña con ícono */
+.password-wrapper {
+  position: relative;
+}
+
+/* Estilo para ícono de mostrar/ocultar contraseña */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Spinner en el botón Aceptar */
+#btnAceptar .spinner-border {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+input:-webkit-autofill {
+  background-color: #eafaf1 !important;
+  -webkit-box-shadow: 0 0 0 1000px #eafaf1 inset;
+}
+
+
+.login-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+}
+
+/* === Fondo suave */
+.bg-login {
+  background: linear-gradient(135deg, #ecf0f1, #d6e6e6);
+  min-height: 100vh;
+}
+
+/* === Tarjeta moderna estilo glass === */
+.login-card-glass {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* === Inputs glass modernos === */
+.input-glass {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.input-glass:focus {
+  border-color: #316163;
+  box-shadow: 0 0 0 0.2rem rgba(49, 97, 99, 0.25);
+  background-color: #ffffff;
+}
+
+/* === Botón moderno === */
+.btn-login-modern {
+  background-color: #316163;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-login-modern:hover {
+  background-color: #274f51;
+  transform: translateY(-2px);
+}
+
+/* === Logo */
+.logo-login {
+  width: 60px;
+  height: auto;
+}
+
+/* === Animación de entrada suave === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* === Header moderno === */
+.header-powervital {
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #d4d4d4;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo-header {
+  height: 50px;
+  width: auto;
+}
+
+/* Botón hamburguesa solo visible en mobile */
+.menu-toggle {
+  font-size: 1.5rem;
+  color: #512d6d; /* Morado elegante */
+}
+
+/* Oculta menú si no se usa en login */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+

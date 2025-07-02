@@ -1,0 +1,185 @@
+
+/* estilosAdmin.css */
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* -------------------- SIDEBAR -------------------- */
+#sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #316163;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+#sidebar.active {
+  transform: translateX(0);
+}
+
+#sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar ul li a {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#sidebar ul li a:hover {
+  background-color: #b66447;
+  color: white;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+/* -------------------- TOGGLE -------------------- */
+#openSidebar {
+  z-index: 1100;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+body.sidebar-active main,
+body.sidebar-active header,
+body.sidebar-active footer {
+  margin-left: 250px;
+}
+
+body.sidebar-active #openSidebar {
+  display: none;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background-color: #022227;
+  color: white;
+  width: 100%;
+}
+
+.footer-logo {
+  height: 40px;
+  transition: transform 0.2s;
+}
+
+.footer-logo:hover {
+  transform: scale(1.1);
+}
+
+/* -------------------- BOTONES PERSONALIZADOS -------------------- */
+.btn-custom {
+  background-color: #a07b5f;
+  color: white;
+  border: none;
+}
+
+.btn-custom:hover {
+  background-color: #8b684f;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-secondary {
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* -------------------- FORMULARIO / TARJETAS -------------------- */
+.card {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* -------------------- ESPACIADO -------------------- */
+.mb-3, .mb-4 {
+  margin-bottom: 1.25rem !important;
+}
+
+table a {
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+th{
+  background-color: #316163;
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+}
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  body.sidebar-active main,
+  body.sidebar-active header,
+  body.sidebar-active footer {
+    margin-left: 0;
+  }
+
+  #sidebar {
+    width: 250px;
+    height: 100%;
+  }
+}

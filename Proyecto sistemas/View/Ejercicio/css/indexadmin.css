@@ -1,0 +1,1078 @@
+/* -------------------- RESET -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ECF0F1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========================
+   VARIABLES CSS - CAFÉ ACTUALIZADO AL MOCKUP
+========================= */
+:root {
+  --color-principal: #316163; /* Verde exacto especificado */
+  --color-hover: #9f5639; /* CAFÉ EXACTO DEL MOCKUP */
+  --color-fondo: #ECF0F1;
+  --color-footer: #316163; /* Footer en verde */
+  --color-texto: #212529;
+  --color-menu: #316163; /* Verde para menú */
+  --color-secundario: #4a7c7e; /* Verde más claro */
+  --color-boton: #9f5639; /* CAFÉ EXACTO DEL MOCKUP PARA BOTONES */
+  --color-boton-hover: #b8674a; /* Café más claro para hover */
+}
+
+/* -------------------- HEADER -------------------- */
+.header {
+  background-color: #ecf0f1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1200;
+}
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  height: 60px;
+}
+
+.menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-menu);
+}
+
+/* -------------------- MENU LATERAL -------------------- */
+.slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: var(--color-principal) !important;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1300;
+  color: white !important;
+  padding-top: 70px;
+}
+
+.slide.open {
+  transform: translateX(0);
+}
+
+.menu-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: var(--color-principal) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.menu-header h1 {
+  color: #fff !important;
+  font-weight: 800;
+}
+
+.close-btn {
+  font-size: 30px;
+  cursor: pointer;
+  color: white !important;
+}
+
+.slide ul {
+  list-style: none;
+  padding: 1px;
+  font-size: 20px;
+  background-color: var(--color-principal) !important;
+}
+
+.slide ul li a {
+  display: flex;
+  align-items: center;
+  color: #ecf1f1 !important;
+  font-weight: 500;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+  background-color: transparent !important;
+}
+
+.slide ul li a i {
+  margin-right: 10px;
+  color: #ecf1f1 !important;
+}
+
+.slide ul li a:hover {
+  background-color: var(--color-secundario) !important;
+  color: white !important;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+/* -------------------- OVERLAY -------------------- */
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1250;
+  display: none;
+}
+
+#menu-overlay.visible {
+  display: block;
+}
+
+/* -------------------- CONTENIDO PRINCIPAL -------------------- */
+.contenedor-main {
+  transition: margin-left 0.3s ease;
+  padding: 90px 20px 90px;
+  min-height: calc(100vh - 80px);
+}
+
+.contenedor-main.shifted {
+  margin-left: 220px;
+}
+
+/* ========================
+   BARRA DE BÚSQUEDA - ÍCONO EN CAFÉ
+========================= */
+
+.input-group-text {
+  display: none !important; /* OCULTAR EL ÍCONO DE LA IZQUIERDA */
+}
+
+.form-control:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 0.2rem rgba(49, 97, 99, 0.25);
+}
+
+/* ========================
+   HEADERS DE TABLA PERSONALIZADOS
+========================= */
+
+/* Header principal (Mis Clientes Asignados) - Color de fondo con texto negro */
+.card-header {
+  background-color: var(--color-fondo) !important; /* Color de fondo #ECF0F1 */
+  border: none;
+  border-radius: 12px 12px 0 0 !important;
+  color: #000 !important; /* Texto negro */
+}
+
+.card-header h5 {
+  font-weight: 700;
+  margin: 0;
+  color: #000 !important; /* Texto negro */
+}
+
+/* Headers de columnas de tabla - Verde con texto blanco */
+.table-light th {
+  background-color: var(--color-principal) !important; /* Verde #316163 */
+  color: white !important; /* Texto blanco */
+  border-bottom: 2px solid var(--color-principal) !important;
+  font-weight: 600;
+}
+
+.table-light {
+  background-color: var(--color-principal) !important;
+}
+
+/* ========================
+   BOTONES ESPECÍFICOS CON COLORES BOOTSTRAP - BASADO EN CONTENIDO
+========================= */
+
+/* Botón Ver Rutina - Verde oscuro elegante */
+button[class*="Ver Rutina"],
+.btn:contains("Ver Rutina"),
+button:has(i.fa-dumbbell),
+.btn-sm:has(i.fa-dumbbell) {
+  background-color: #4F6654 !important; /* Verde oscuro elegante */
+  border-color: #4F6654 !important;
+  color: white !important;
+}
+
+button[class*="Ver Rutina"]:hover,
+.btn:contains("Ver Rutina"):hover,
+button:has(i.fa-dumbbell):hover,
+.btn-sm:has(i.fa-dumbbell):hover {
+  background-color: #3e5143 !important;
+  border-color: #364a39 !important;
+  color: white !important;
+}
+
+/* Botón Nueva Rutina - Beige elegante */
+button[class*="Nueva Rutina"],
+.btn:contains("Nueva Rutina"),
+button:has(i.fa-plus),
+.btn-sm:has(i.fa-plus) {
+  background-color: #C9BBA3 !important; /* Beige elegante de tu paleta */
+  border-color: #C9BBA3 !important;
+  color: #3d3d3d !important; /* Texto oscuro para contraste */
+}
+
+button[class*="Nueva Rutina"]:hover,
+.btn:contains("Nueva Rutina"):hover,
+button:has(i.fa-plus):hover,
+.btn-sm:has(i.fa-plus):hover {
+  background-color: #b8a88a !important;
+  border-color: #a99677 !important;
+  color: #3d3d3d !important;
+}
+
+/* Botón Perfil - Marrón elegante */
+button[class*="Perfil"],
+.btn:contains("Perfil"),
+button:has(i.fa-heart-pulse),
+.btn-sm:has(i.fa-heart-pulse) {
+  background-color: #8E735B !important; /* Marrón elegante */
+  border-color: #8E735B !important;
+  color: white !important;
+}
+
+button[class*="Perfil"]:hover,
+.btn:contains("Perfil"):hover,
+button:has(i.fa-heart-pulse):hover,
+.btn-sm:has(i.fa-heart-pulse):hover {
+  background-color: #7a634a !important;
+  border-color: #6d5842 !important;
+  color: white !important;
+}
+
+/* REGLAS ALTERNATIVAS MÁS ESPECÍFICAS PARA OVERRIDE */
+
+/* Ver Rutina con cualquier combinación de clases */
+.btn.btn-sm[onclick*="verRutina"],
+.btn[onclick*="verRutina"],
+button[onclick*="verRutina"] {
+  background-color: #4F6654 !important;
+  border-color: #4F6654 !important;
+  color: white !important;
+}
+
+/* Nueva Rutina con cualquier combinación de clases */
+.btn.btn-sm[onclick*="nuevaRutina"],
+.btn[onclick*="nuevaRutina"],
+button[onclick*="nuevaRutina"] {
+  background-color: #C9BBA3 !important;
+  border-color: #C9BBA3 !important;
+  color: #3d3d3d !important;
+}
+
+/* Perfil con cualquier combinación de clases */
+.btn.btn-sm[onclick*="verPerfil"],
+.btn[onclick*="verPerfil"],
+button[onclick*="verPerfil"] {
+  background-color: #8E735B !important;
+  border-color: #8E735B !important;
+  color: white !important;
+}
+
+/* ========================
+   ESTILOS BOTONES PERSONALIZADOS - CAFÉ MOCKUP (RESTO DE BOTONES)
+========================= */
+
+/* Override de Bootstrap para botones en café exacto del mockup */
+.btn-primary {
+  background-color: var(--color-boton) !important;
+  border-color: var(--color-boton) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-boton-hover) !important;
+  border-color: var(--color-boton-hover) !important;
+  color: white !important;
+}
+
+.btn-success {
+  background-color: var(--color-boton) !important;
+  border-color: var(--color-boton) !important;
+  color: white !important;
+}
+
+.btn-success:hover {
+  background-color: var(--color-boton-hover) !important;
+  border-color: var(--color-boton-hover) !important;
+  color: white !important;
+}
+
+.btn-info {
+  background-color: var(--color-boton) !important;
+  border-color: var(--color-boton) !important;
+  color: white !important;
+}
+
+.btn-info:hover {
+  background-color: var(--color-boton-hover) !important;
+  border-color: var(--color-boton-hover) !important;
+  color: white !important;
+}
+
+.btn-custom {
+  background-color: var(--color-boton) !important;
+  border-color: var(--color-boton) !important;
+  color: white !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: var(--color-boton-hover) !important;
+  border-color: var(--color-boton-hover) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(159, 86, 57, 0.15);
+}
+
+/* Botones secundarios también en café */
+.btn-secondary {
+  background-color: var(--color-boton) !important;
+  border-color: var(--color-boton) !important;
+  color: white !important;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-boton-hover) !important;
+  border-color: var(--color-boton-hover) !important;
+  color: white !important;
+}
+
+/* ========================
+   TARJETAS Y CARDS - VERDE
+========================= */
+
+/* Card principal */
+.card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(49, 97, 99, 0.15);
+}
+
+/* ========================
+   TABLA PERSONALIZADA - HEADERS CAFÉ
+========================= */
+
+.table-hover tbody tr:hover {
+  background-color: rgba(49, 97, 99, 0.05) !important;
+  transition: background-color 0.2s ease;
+}
+
+/* ========================
+   MODAL PERSONALIZADO - VERDE
+========================= */
+
+.modal-header {
+  background: linear-gradient(135deg, var(--color-principal), var(--color-secundario)) !important;
+  color: white !important;
+  border-bottom: none;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+.modal-title {
+  font-weight: 700;
+}
+
+/* ========================
+   BADGES PERSONALIZADOS
+========================= */
+
+.badge {
+  font-weight: 500;
+  padding: 0.5em 0.75em;
+}
+
+.bg-success {
+  background-color: #a3d3a1 !important;
+  color: #275d27 !important;
+}
+
+.bg-danger {
+  background-color: #f7c7db !important;
+  color: #6b304f !important;
+}
+
+.bg-warning {
+  background-color: #f7e99d !important;
+  color: #6b6b2d !important;
+}
+
+.bg-secondary {
+  background-color: var(--color-principal) !important;
+  color: white !important;
+}
+
+.bg-info {
+  background-color: var(--color-secundario) !important;
+  color: white !important;
+}
+
+/* ========================
+   SPINNER PERSONALIZADO
+========================= */
+
+.spinner-border {
+  color: var(--color-principal) !important;
+}
+
+/* ========================
+   ALERTAS PERSONALIZADAS
+========================= */
+
+.alert {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  color: #664d03;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  color: #721c24;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  border-left: 4px solid var(--color-principal);
+  color: #0c5460;
+}
+
+/* ========================
+   ANIMACIONES
+========================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease;
+}
+
+
+/* -------------------- CARD GRID (para Panel Entrenador) -------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 20px 0;
+}
+
+.custom-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(45, 90, 61, 0.15);
+}
+
+.icon-section {
+  font-size: 2rem;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.bg-light-brown { 
+  background-color: #d3a87c; 
+}
+
+.bg-light-yellow { 
+  background-color: #f7e99d; 
+}
+
+.bg-light-pink { 
+  background-color: #f7c7db; 
+}
+
+.icon-brown { 
+  color: #5a3e2b; 
+}
+
+.icon-olive { 
+  color: #6b6b2d; 
+}
+
+.icon-red { 
+  color: #a10000; 
+}
+
+/* ========================
+   MEJORAS ESPECÍFICAS DE TABLAS
+========================= */
+
+.table-responsive {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 1rem 0.75rem;
+}
+
+.table th {
+  vertical-align: middle;
+  font-weight: 600;
+  background-color: #f8f9fa;
+}
+
+/* ========================
+   BOTONES ESPECÍFICOS DE TABLA - CAFÉ
+========================= */
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: var(--color-boton) !important;
+  border-color: var(--color-boton) !important;
+  color: white !important;
+}
+
+.btn-sm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(159, 86, 57, 0.15);
+  background-color: var(--color-boton-hover) !important;
+  border-color: var(--color-boton-hover) !important;
+}
+
+/* ========================
+   NAVEGACIÓN - VERDE
+========================= */
+
+nav {
+  background-color: white !important;
+  border-bottom: 3px solid var(--color-principal);
+}
+
+/* ========================
+   ELEMENTOS ESPECÍFICOS VERDES
+========================= */
+
+.text-muted {
+  color: var(--color-principal) !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(49, 97, 99, 0.075) !important;
+}
+
+/* ========================
+   OVERRIDE FINAL - MÁXIMA PRIORIDAD PARA COLORES ESPECÍFICOS
+========================= */
+
+/* Cualquier botón que contenga "Ver Rutina" */
+.btn-sm:nth-child(1),
+td:nth-child(2) .btn,
+th:nth-child(2) ~ td .btn {
+  background-color: #4F6654 !important;
+  border-color: #4F6654 !important;
+  color: white !important;
+}
+
+/* Cualquier botón que contenga "Nueva Rutina" */
+.btn-sm:nth-child(2),
+td:nth-child(3) .btn,
+th:nth-child(3) ~ td .btn {
+  background-color: #C9BBA3 !important;
+  border-color: #C9BBA3 !important;
+  color: #3d3d3d !important;
+}
+
+/* Cualquier botón que contenga "Perfil" */
+.btn-sm:nth-child(3),
+td:nth-child(4) .btn,
+th:nth-child(4) ~ td .btn {
+  background-color: #8E735B !important;
+  border-color: #8E735B !important;
+  color: white !important;
+}
+
+/* Override por posición en tabla */
+tbody tr td:nth-child(2) button {
+  background-color: #4F6654 !important; /* Verde oscuro para Ver Rutina */
+  border-color: #4F6654 !important;
+  color: white !important;
+}
+
+tbody tr td:nth-child(3) button {
+  background-color: #C9BBA3 !important; /* Beige elegante para Nueva Rutina */
+  border-color: #C9BBA3 !important;
+  color: #3d3d3d !important;
+}
+
+tbody tr td:nth-child(4) button {
+  background-color: #8E735B !important; /* Marrón para Perfil */
+  border-color: #8E735B !important;
+  color: white !important;
+}
+@media (max-width: 768px) {
+  .slide {
+    width: 200px;
+  }
+
+  .contenedor-main.shifted {
+    margin-left: 200px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .custom-card {
+    padding: 15px;
+  }
+
+  .btn-sm {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+}
+/* ========================
+   FORZAR BOTONES LADO A LADO
+========================= */
+
+/* Contenedor de botones en acciones */
+td:last-child {
+  white-space: nowrap !important;
+  min-width: 200px !important;
+}
+
+/* Forzar flexbox para botones de acciones */
+td:last-child .d-flex {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 8px !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Botones específicos lado a lado */
+.btn-sm {
+  display: inline-block !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Override cualquier estilo que fuerce vertical */
+.d-flex.gap-2 {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0.5rem !important;
+}
+.modal-custom-margin {
+  margin-top: 80px !important; /* desplaza el modal hacia abajo */
+}
+.btn-agregar {
+  background-color: #b8674a; /* Verde bonito */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+  background-color: #b8674a;
+  color: white;
+}
+
+.btn-regresar {
+  background-color: #9f5639; /* Gris neutro */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-regresar:hover {
+  background-color: #9f5639;
+  color: white;
+}
+
+/* ========================
+   FOOTER MEJORADO - AGREGAR AL FINAL
+========================= */
+
+@media (max-width: 480px) {
+  .footer {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    padding: 10px 15px !important;
+    text-align: center !important;
+    gap: 8px !important;
+  }
+
+  .footer-text {
+    font-size: 12px !important;
+    margin: 0 !important;
+    color: #ffffff;
+  }
+
+  .footer-text strong {
+    color: #C4A574;
+    font-weight: bold;
+  }
+
+  .social-icons {
+    display: flex !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease;
+  }
+
+  .footer-logo:hover {
+    transform: scale(1.1);
+  }
+
+  .content-wrapper {
+    padding-bottom: 100px; /* Espacio para footer en móviles */
+  }
+}
+
+
+
+
+
+
+
+
+
+.btn-ver-rutina:hover {
+  background-color: #1f5a4d;
+  color: #fff;
+}
+
+
+
+
+
+/*--Nuevo
+
+/* -------------------- MENU LATERAL -------------------- */
+.slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: var(--color-menu);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1300;
+  color: white;
+  padding-top: 70px;
+}
+
+.slide.open {
+  transform: translateX(0);
+}
+
+.menu-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: var(--color-menu);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.menu-header h1 {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.4rem; /* Ajuste de tamaño más pequeño que antes */
+}
+
+.close-btn {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.slide ul {
+  list-style: none;
+  padding: 1px;
+  font-size: 20px;
+  background-color: var(--color-menu);
+}
+
+.slide ul li a {
+  display: flex;
+  align-items: center;
+  color: #ecf1f1;
+  font-weight: 500;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+  background-color: transparent;
+}
+
+.slide ul li a i {
+  margin-right: 10px;
+  color: #ecf1f1;
+}
+
+.slide ul li a:hover,
+.slide ul li a.active {
+  background-color: var(--color-hover) !important;
+  color: white !important;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+.slide ul li {
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.slide ul li:hover {
+  background-color: var(--color-hover);
+}
+
+/* -------------------- SUBMENÚ -------------------- */
+.submenu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--color-menu);
+}
+
+.submenu.visible {
+  display: flex;
+}
+
+.submenu li a {
+  padding: 10px 35px;
+  font-size: 14px;
+  color: #e4f4f3;
+}
+
+.submenu li a:hover,
+.submenu li a.active {
+  background-color: var(--color-hover) !important;
+  color: white;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+
+/* -------------------- CORRECCIÓN BARRA DE BÚSQUEDA -------------------- */
+.container-fluid {
+  margin-top: 50px;
+}
+
+
+/* Contenedor principal del contenido */
+.contenedor-main {
+  transition: margin-left 0.3s ease;
+  padding: 100px 20px 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+}
+
+/* Cuando se abre el menú lateral */
+body.menu-open .contenedor-main {
+  margin-left: 90px; /* Aquí defines cuánto se corre (puedes ajustar este valor) */
+}
+
+/* === TARJETAS === */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.custom-card {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  max-width: 460px;
+  width: 100%;
+}
+
+.custom-card:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon-section {
+  font-size: 3rem;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease;
+}
+
+.custom-card:hover .icon-section {
+  transform: scale(1.03);
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Asegura que el footer siempre quede abajo */
+.footer {
+  margin-top: auto;
+}
+
+
+/* -------------------- FOOTER -------------------- */
+footer {
+  background-color: #022227;
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  padding: 18px 0;
+  z-index: 10;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+footer p {
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+footer strong {
+  font-weight: bold;
+}
+
+/* Estilos de los íconos sociales */
+footer img {
+  width: 30px;
+  height: auto;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  margin: 0 10px;
+}
+
+footer img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1); /* EFECTO HOVER DE ESCALA */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-main {
+  flex: 1 0 auto;
+}
+
+footer.footer {
+  flex-shrink: 0;
+  background-color: #022227;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 18px 0;
+}

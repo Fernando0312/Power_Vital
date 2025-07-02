@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Administrador</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../Complementos/css/AdministradorEstilos.css" />
+</head>
+
+<body>
+  <div id="main-wrapper"> <!-- ✅ ENVOLTURA PARA COMPATIBILIDAD CON FOOTER -->
+    <main class="contenedor-main pt-4" id="mainContent">
+      <div class="card-grid mt-4">
+        <a href="../../View/Administrador/Empleados.html" class="custom-card">
+          <div class="icon-section bg-light-brown icon-brown"><i class="fas fa-user-shield"></i></div>
+          <strong>Administradores</strong>
+          <p>Ver todos</p>
+        </a>
+
+        <a href="../Administrador/ListaPadecimientos.html" class="custom-card">
+          <div class="icon-section bg-light-green icon-green"><i class="fas fa-heartbeat"></i></div>
+          <strong>Padecimientos</strong>
+          <p>Registrar / Ver</p>
+        </a>
+
+        <a href="../Administrador/ListaClientes.html" class="custom-card">
+          <div class="icon-section bg-light-yellow icon-olive"><i class="fas fa-users"></i></div>
+          <strong>Clientes</strong>
+          <p>Gestión de clientes</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { renderAdminLayout } from "../../Controler/Administrador/AdminLayout.js";
+    renderAdminLayout();
+  </script>
+</body>
+
+</html>

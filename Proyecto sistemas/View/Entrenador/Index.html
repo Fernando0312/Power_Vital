@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Entrenador - Resumen</title>
+
+  <!-- Bootstrap y FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Hoja de estilos del administrador (compartida para tarjetas unificadas) -->
+  <link rel="stylesheet" href="../Ejercicio/css/indexadmin.css"/>
+</head>
+
+<body>
+
+  <!-- Header, menú lateral y footer los genera MenuEntren.js -->
+
+  <!-- Contenido principal -->
+  <main class="contenedor-main" id="mainContent">
+    <div class="card-grid">
+      <a href="../../View/Administrador/ListaEjercicios.html" class="custom-card">
+        <div class="icon-section bg-light-brown icon-brown">
+          <i class="fas fa-dumbbell"></i>
+        </div>
+        <strong>Ejercicios</strong>
+        <p>Ver ejercicios</p>
+      </a>
+
+      <a href="../../View/Entrenador/VerCliente.html" class="custom-card">
+        <div class="icon-section bg-light-yellow icon-olive">
+          <i class="fas fa-users"></i>
+        </div>
+        <strong>Clientes</strong>
+        <p>Gestión de clientes</p>
+      </a>
+    </div>
+  </main>
+
+  <!-- Script del menú lateral -->
+  <script type="module" src="../../Complementos/Components/entrenadorLayaut.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+
+
+/* ejercicios.js */
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  form {
+    background-color: #f4f7f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  form section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  select {
+    padding: 10px;
+    border: 2px solid #5e6adb;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  select {
+    background-color: #fff;
+  }
+  
+  .impedimentos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 30px;
+    padding: 10px 0;
+  }
+  
+  .impedimentos-grid label {
+    font-weight: normal;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  /* Botones */
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .salir {
+    background-color: #cb6e4b;
+    color: white;
+  }
+  
+  .agregar {
+    background-color: #8c6e4b;
+    color: white;
+  }
+  
+  /* Logo centrado (ya está en HTML) */
+  .header-logo {
+    display: block;
+    margin: 0 auto 20px auto;
+  }

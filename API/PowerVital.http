@@ -1,0 +1,6 @@
+@PowerVital_HostAddress = http://localhost:5265
+
+GET {{PowerVital_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

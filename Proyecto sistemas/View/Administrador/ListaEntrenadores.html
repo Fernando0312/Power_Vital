@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Entrenadores</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- <link rel="stylesheet" href="/Proyecto sistemas/Complementos/css/EntrenadorEstilo.css" /> -->
+
+  <!-- <link rel="stylesheet" href="/Proyecto sistemas/Complementos/css/EntrenadorEstilo.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../Complementos/css/AdministradorEstilos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+  <div id="main-wrapper"> <!-- ✅ Contenedor padre para que el footer funcione correctamente -->
+
+    <main class="contenedor-main mt-5" id="mainContent">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+          <h3><strong>Entrenadores</strong></h3>
+          <a class="btn btn-sm btn-enviar btn-agregar" onclick="window.location.href='RegistroEntrenador.html'">
+            <i class="bi bi-plus-circle"></i> Agregar
+          </a>
+        </div>
+
+        <div class="d-flex gap-2 mb-3">
+          <div class="input-group" style="max-width: 300px;">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" class="form-control" id="filtroEntrenador" placeholder="Search Entrenador">
+          </div>
+          <button class="btn btn-dark"><i class="fas fa-filter"></i></button>
+        </div>
+
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Teléfono</th>
+              <th>Formación Académica</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="entrenador-tbody">
+            <!-- Se carga con JS -->
+          </tbody>
+        </table>
+
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-volver" onclick="window.location.href='../../View/Administrador/Index.html'">
+            <i class="fas fa-arrow-left"></i> Regresar
+          </button>
+        </div>
+      </div>
+    </main>
+
+  </div> <!-- ✅ Fin del main-wrapper -->
+
+
+
+  <!-- MODAL EDITAR ENTRENADOR -->
+  <div class="modal fade" id="modalEditarEntrenador" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" id="formularioEditar">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Entrenador</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="idEditar">
+          <div class="mb-3">
+            <label for="nombreEditar" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreEditar" required>
+          </div>
+          <div class="mb-3">
+            <label for="correoEditar" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="correoEditar" required>
+          </div>
+          <div class="mb-3">
+            <label for="telefonoEditar" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefonoEditar" required>
+          </div>
+        
+          <div class="mb-3">
+            <label for="formacionEditar" class="form-label">Formación Académica</label>
+            <input type="text" class="form-control" id="formacionEditar" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL ELIMINAR ENTRENADOR -->
+  <div class="modal fade" id="modalEliminarEntrenador" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" id="formularioEliminar">
+        <div class="modal-header">
+          <h5 class="modal-title">¿Eliminar entrenador?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Estás seguro de que deseas eliminar este entrenador?</p>
+          <input type="hidden" id="idEliminar">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script type="module">
+    import { renderAdminLayout } from "../../Controler/Administrador/AdminLayout.js";
+    renderAdminLayout();
+  </script>
+
+  <script type="module" src="../../Controler/Administrador/AdminEntrenador.js"></script>
+  <!-- Script funcional para el menú hamburguesa -->
+
+</body>
+
+</html>

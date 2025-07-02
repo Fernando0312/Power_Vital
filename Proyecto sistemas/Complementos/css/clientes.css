@@ -1,0 +1,121 @@
+/* clientes.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf1f1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f5f7f8;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input, select {
+  padding: 8px 10px;
+  margin-top: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.padecimientos-interactivo {
+  margin-top: 10px;
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.volver {
+  background-color: #bc6c25;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.aceptar {
+  background-color: #8d6e63;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.volver:hover {
+  background-color: #a1561c;
+}
+
+.aceptar:hover {
+  background-color: #755349;
+}
+
+.top-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.top-link a {
+  text-decoration: none;
+  color: #316163;
+  font-weight: bold;
+  font-size: 14px;
+}

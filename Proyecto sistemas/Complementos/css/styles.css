@@ -1,0 +1,28 @@
+/* styles.css */
+
+.btn-enviar {
+  background-color: #b58857;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+}
+
+.btn-enviar:hover {
+  background-color: #bd6f50;
+}
+
+.btn-volver {
+   background-color: #bd6f50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+}
+
+.btn-cancelar:hover {
+  background-color: #a85c40;
+
+}

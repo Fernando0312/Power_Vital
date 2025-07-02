@@ -1,0 +1,439 @@
+/* ---------- ESTRUCTURA GENERAL ---------- */
+/* clienteEstilo.css */
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f1f4f6;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+body.sidebar-active main {
+  padding-left: 250px;
+}
+
+@media (max-width: 768px) {
+  body.sidebar-active main {
+    padding-left: 0;
+  }
+}
+
+/* ---------- TOGGLE (BOTÓN HAMBURGUESA) ---------- */
+.menu-toggle {
+  position: fixed;
+  top: 18px;
+  left: 20px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+body.sidebar-active #openSidebar {
+  display: none;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+#sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #316163;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+#sidebar.active,
+.slide.open {
+  transform: translateX(0);
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar ul li {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar a {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#sidebar a:hover,
+#sidebar a.active {
+  background-color: #b66447;
+  color: white;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+/* Submenú */
+#submenuUsuarios {
+  display: none;
+  background-color: #316163;
+}
+
+#submenuUsuarios a {
+  padding: 10px 35px;
+  font-size: 14px;
+}
+
+#toggleUsuarios.active + #submenuUsuarios,
+.submenu.visible {
+  display: block;
+}
+
+/* ---------- FOOTER ---------- */
+footer.footer {
+  background-color: #022227;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.footer-logo {
+  height: 45px;
+  transition: transform 0.2s;
+}
+
+.footer-logo:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- DASHBOARD (TARJETAS) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.custom-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-section {
+  font-size: 2rem;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.bg-light-brown { background-color: #d3a87c; }
+.bg-light-green { background-color: #a3d3a1; }
+.bg-light-yellow { background-color: #f7e99d; }
+.bg-light-pink { background-color: #f7c7db; }
+.bg-light-red { background-color: #f5b5b5; }
+
+.icon-brown { color: #5a3e2b; }
+.icon-green { color: #275d27; }
+.icon-olive { color: #6b6b2d; }
+.icon-red { color: #8b2c2c; }
+
+/* ---------- BOTONES PERSONALIZADOS ---------- */
+.btn-custom {
+  background-color: #a07b5f;
+  color: white;
+  border: none;
+}
+
+.btn-custom:hover {
+  background-color: #8b684f;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-secondary {
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Botones especiales */
+.btn-volver, .btn-enviar, .btn-aceptar {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-volver { background-color: #b66447; }
+.btn-enviar, .btn-aceptar { background-color: #a07b5f; }
+
+/* ---------- FORMULARIOS ---------- */
+.card {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* ---------- TABLAS Y LAYOUTS ---------- */
+.table-rutinas th,
+.table-rutinas td {
+  vertical-align: top;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.acciones button {
+  margin: 0 3px;
+}
+
+main.container-fluid {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.rutinas-wrapper,
+.fit-wrapper {
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* ---------- ÍCONOS Y BOTONES DINÁMICOS ---------- */
+.icono-agregar {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.btn-ejercicio-add {
+  background-color: #316163;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 50%;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-ejercicio-add:hover {
+  background-color: #254b4c;
+  cursor: pointer;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 200px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+
+/* ---------- FORMULARIO ENTRENADOR ---------- */
+.form-wrapper {
+  max-width: 650px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-wrapper label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.form-wrapper input[type="text"],
+.form-wrapper input[type="email"],
+.form-wrapper input[type="password"],
+.form-wrapper input[type="tel"] {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+.form-wrapper .btn-volver,
+.form-wrapper .btn-aceptar {
+  width: 120px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.form-wrapper .btn-volver:hover {
+  background-color: #944d34;
+}
+
+.form-wrapper .btn-aceptar:hover {
+  background-color: #8c684d;
+}
+
+@media (max-width: 576px) {
+  .form-wrapper {
+    padding: 1.5rem;
+  }
+}
+
+/* ---------- NAVBAR ---------- */
+.header {
+  background-color: #f1f4f6;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  height: 50px;
+}
+
+.contenedor-main {
+  margin-top: 90px;
+}
+
+.contenedor-main.shifted {
+  margin-left: 220px;
+}
+/* Asegura que el menú hamburguesa siempre esté sobre todo */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  z-index: 1300; /* Más alto que el sidebar */
+}
+
+/* Sidebar básico con posición fija */
+.slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #316163;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1200;
+}
+
+.slide.open {
+  transform: translateX(0);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #316163;
+  padding: 1rem;
+  color: white;
+}
+
+.menu-header h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* Submenú y transición */
+.submenu {
+  display: none;
+  flex-direction: column;
+}
+
+.submenu.visible {
+  display: flex;
+}
+
+.submenu a {
+  padding-left: 2rem;
+  font-size: 0.9rem;
+}
